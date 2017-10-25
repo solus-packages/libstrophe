@@ -1,0 +1,17 @@
+name       : libstrophe
+version    : 0.9.1
+release    : 1
+source     :
+    - https://github.com/strophe/libstrophe/archive/0.9.1.tar.gz : c90493f986e5bd407132c5a3e174378c02cb80fa4eaee29875e06b4bba6afcc3
+license    : GPL-3.0
+component  : programming.library
+summary    : A simple, lightweight C library for writing XMPP clients
+description: |
+    libstrophe is a lightweight XMPP client library written in C. It has minimal dependencies and is configurable for various environments.
+#builddeps  :
+setup      : |
+    %reconfigure
+build      : |
+    %make
+install    : |
+    %make_install
