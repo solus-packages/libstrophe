@@ -24,9 +24,11 @@ libstrophe.so.0:xmpp_connect_component
 libstrophe.so.0:xmpp_connect_raw
 libstrophe.so.0:xmpp_ctx_free
 libstrophe.so.0:xmpp_ctx_new
+libstrophe.so.0:xmpp_ctx_set_timeout
 libstrophe.so.0:xmpp_debug
 libstrophe.so.0:xmpp_disconnect
 libstrophe.so.0:xmpp_error
+libstrophe.so.0:xmpp_error_new
 libstrophe.so.0:xmpp_free
 libstrophe.so.0:xmpp_get_default_logger
 libstrophe.so.0:xmpp_handler_add
@@ -55,9 +57,11 @@ libstrophe.so.0:xmpp_realloc
 libstrophe.so.0:xmpp_run
 libstrophe.so.0:xmpp_run_once
 libstrophe.so.0:xmpp_send
+libstrophe.so.0:xmpp_send_error
 libstrophe.so.0:xmpp_send_raw
 libstrophe.so.0:xmpp_send_raw_string
 libstrophe.so.0:xmpp_sha1
+libstrophe.so.0:xmpp_sha1_digest
 libstrophe.so.0:xmpp_sha1_final
 libstrophe.so.0:xmpp_sha1_free
 libstrophe.so.0:xmpp_sha1_new
