@@ -1,0 +1,27 @@
+From 296df2fca997f3d56486ac990ea45c69994ffa51 Mon Sep 17 00:00:00 2001
+From: Dmitry Podgorny <pasis.ua@gmail.com>
+Date: Fri, 1 Nov 2019 10:33:19 +0000
+Subject: [PATCH] tls/openssl: don't use deprecated function in 1.1.0+
+
+SSLv23_client_method() was deprecated in OpenSSL 1.1.0. It is left as
+macro to TLS_client_method.
+---
+ src/tls_openssl.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/tls_openssl.c b/src/tls_openssl.c
+index c94cad25..841e34ca 100644
+--- a/src/tls_openssl.c
++++ b/src/tls_openssl.c
+@@ -118,7 +118,11 @@ tls_t *tls_new(xmpp_conn_t *conn)
+ 
+         tls->ctx = conn->ctx;
+         tls->sock = conn->sock;
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+         tls->ssl_ctx = SSL_CTX_new(SSLv23_client_method());
++#else
++        tls->ssl_ctx = SSL_CTX_new(TLS_client_method());
++#endif
+         if (tls->ssl_ctx == NULL)
+             goto err;
+ 
